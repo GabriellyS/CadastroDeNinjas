@@ -1,14 +1,17 @@
-package dev.java10x.CadastroDeNinjas;
+package dev.java10x.CadastroDeNinjas.Ninjas;
 
 // Testando o git amend
 
+import dev.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 // Data JPA = Java Persistence API
 // Com o Entity eu crio no banco de dados uma entidade
 @Entity
 // Table eu crio tabelas com colunas (variaveis)
-@Table(name = "tb_cadastro")
+@Table(name = "tb_ninjas")
 public class NinjaModel {
 
     @Id // Essa anotaçao informa que o proximo atributo abaixo será o ID
@@ -17,6 +20,7 @@ public class NinjaModel {
 
     private String nome, email;
     private int idade;
+    private List<MissoesModel> missoes;
 
     public NinjaModel(String nome, String email, int idade) {
         this.nome = nome;
