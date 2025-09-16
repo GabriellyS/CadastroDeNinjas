@@ -4,12 +4,18 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 
 import dev.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 // Data JPA = Java Persistence API
 // Com o Entity eu crio no banco de dados uma entidade
 @Entity
 // Table eu crio tabelas com colunas (variaveis)
 @Table(name = "tb_ninjas")
+@NoArgsConstructor // Usando o Lombok para criar um contrutor No Args
+@AllArgsConstructor // Usando o Lombok para criar um contrutor All Args
+@Data // Cria todos os GETs e SETs (nao é muito bom criar todos os SETs pq nem sempre usa)
 public class NinjaModel {
 
     @Id // Essa anotaçao informa que o proximo atributo abaixo será o ID
@@ -28,9 +34,6 @@ public class NinjaModel {
         this.nome = nome;
         this.email = email;
         this.idade = idade;
-    }
-
-    public NinjaModel() {
     }
 
     @Override
