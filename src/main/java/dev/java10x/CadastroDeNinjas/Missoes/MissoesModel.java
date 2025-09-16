@@ -3,6 +3,9 @@ package dev.java10x.CadastroDeNinjas.Missoes;
 import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table (name = "tb_missoes")
 
@@ -13,12 +16,15 @@ public class MissoesModel {
     private Long id;
 
     private String titulo, descricao;
-    private NinjaModel ninjaAtribuido;
+
+    // Uma missao vai ter muitos atributos abaixo
+    @OneToMany (mappedBy = "missao") // Eu mapeio com a coluna que eu quero juntar da outra classe
+    private List<NinjaModel> ninjaAtribuido;
 
     public MissoesModel(String titulo, String descricao, NinjaModel ninjaAtribuido) {
         this.titulo = titulo;
         this.descricao = descricao;
-        this.ninjaAtribuido = ninjaAtribuido;
+        this.ninjaAtribuido = new ArrayList<>();
     }
 
     public long getId() {
@@ -45,11 +51,11 @@ public class MissoesModel {
         this.descricao = descricao;
     }
 
-    public NinjaModel getNinjaAtribuido() {
+    public List<NinjaModel> getNinjaAtribuido() {
         return ninjaAtribuido;
     }
 
-    public void setNinjaAtribuido(NinjaModel ninjaAtribuido) {
+    public void setNinjaAtribuido(List<NinjaModel> ninjaAtribuido) {
         this.ninjaAtribuido = ninjaAtribuido;
     }
 

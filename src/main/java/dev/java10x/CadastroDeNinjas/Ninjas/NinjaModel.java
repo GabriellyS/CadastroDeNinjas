@@ -5,8 +5,6 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 import dev.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
-import java.util.List;
-
 // Data JPA = Java Persistence API
 // Com o Entity eu crio no banco de dados uma entidade
 @Entity
@@ -20,7 +18,11 @@ public class NinjaModel {
 
     private String nome, email;
     private int idade;
-    private List<MissoesModel> missoes;
+
+
+    @ManyToOne // Varios Ninjas tem somente um atributo atributo abaixo
+    @JoinColumn(name = "missao_id") // eu vou mesclar as colunas "Missao" e "ninjaAtribuido"- Esse é o Foreing Key/ Chave Estrangeira
+    private MissoesModel missao;
 
     public NinjaModel(String nome, String email, int idade) {
         this.nome = nome;
