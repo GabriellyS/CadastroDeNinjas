@@ -20,7 +20,7 @@ public class NinjaModel {
     private int idade;
 
 
-    @ManyToOne // Varios Ninjas tem somente um atributo atributo abaixo
+    @ManyToOne // Varios Ninjas tem somente um atributo abaixo
     @JoinColumn(name = "missao_id") // eu vou mesclar as colunas "Missao" e "ninjaAtribuido"- Esse é o Foreing Key/ Chave Estrangeira
     private MissoesModel missao;
 
