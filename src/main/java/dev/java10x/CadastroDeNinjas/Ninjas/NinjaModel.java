@@ -22,8 +22,11 @@ public class NinjaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Essa anotaçao ajuda a configurar 1 ID por objeto
     private long id;
 
-    private String nome, email;
+    private String nome;
     private int idade;
+
+    @Column(unique = true) // Estou dizendo que o atributo em baixo deve ser unico e nao pode ser repetido
+    private String email;
 
 
     @ManyToOne // Varios Ninjas tem somente um atributo abaixo
