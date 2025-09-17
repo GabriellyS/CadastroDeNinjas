@@ -20,7 +20,7 @@ public class NinjaModel {
 
     @Id // Essa anotaçao informa que o proximo atributo abaixo será o ID
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Essa anotaçao ajuda a configurar 1 ID por objeto
-    private long id;
+    private Long id;
 
     private String nome;
     private int idade;
