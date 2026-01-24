@@ -20,16 +20,16 @@ public class MissoesModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //cada ID é unico
     private Long id;
 
-    private String titulo, descricao;
+    private String titulo, dificuldade;
 
     // Uma missao vai ter muitos atributos abaixo
     @OneToMany (mappedBy = "missao") // Eu mapeio com a coluna que eu quero juntar da outra classe
     private List<NinjaModel> ninjaAtribuido;
 
 
-    public MissoesModel(String titulo, String descricao) {
+    public MissoesModel(String titulo, String dificuldade) {
         this.titulo = titulo;
-        this.descricao = descricao;
+        this.dificuldade = dificuldade;
         this.ninjaAtribuido = new ArrayList<>();
     }
 
